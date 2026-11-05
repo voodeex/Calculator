@@ -10,12 +10,6 @@ namespace Calculator
 {
     public partial class MainWindow : Window
     {
-        [STAThread]
-        public static void Main()
-        {
-            new Application().Run(new MainWindow());
-        }
-
         public MainWindow()
         {
             InitializeComponent();
