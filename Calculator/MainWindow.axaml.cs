@@ -2,44 +2,15 @@ using System;
 using System.Globalization;
 using System.IO;
 using System.Text;
-using Avalonia;
 using Avalonia.Controls;
-using Avalonia.Controls.ApplicationLifetimes;
 using Avalonia.Interactivity;
 using Avalonia.Media;
 using Avalonia.Platform.Storage;
-using Avalonia.Styling;
-using Avalonia.Themes.Fluent;
 
 namespace Calculator
 {
-    // приложение без App.axaml — тема подключается кодом
-    public class App : Application
-    {
-        public override void Initialize()
-        {
-            Styles.Add(new FluentTheme());
-            RequestedThemeVariant = ThemeVariant.Light;
-        }
-
-        public override void OnFrameworkInitializationCompleted()
-        {
-            if (ApplicationLifetime is IClassicDesktopStyleApplicationLifetime desktop)
-                desktop.MainWindow = new MainWindow();
-            base.OnFrameworkInitializationCompleted();
-        }
-    }
-
     public partial class MainWindow : Window
     {
-        [STAThread]
-        public static void Main(string[] args)
-        {
-            AppBuilder.Configure<App>()
-                .UsePlatformDetect()
-                .StartWithClassicDesktopLifetime(args);
-        }
-
         public MainWindow()
         {
             InitializeComponent();
